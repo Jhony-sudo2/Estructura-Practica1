@@ -25,7 +25,7 @@ public class Manejador {
     }
     
     public  void Create(String Line){
-        System.out.println("Entre a create");
+        
         int n = 0;
         int Size = Line.length();
         char L = Line.charAt(0);
@@ -54,15 +54,13 @@ public class Manejador {
              
              }
              if(Vuelta==12 && n ==(Size-1)){
-                 System.out.println("SI entre");
-                 System.out.println(Line.substring(Inicio,Size));
                  Fin = Size;
              }
              
              if((Inicio != Fin && Line.charAt(n) == ','&&Vuelta!=12)|(Inicio != Fin &&Vuelta ==12 && Fin!=0)){
                 
                 String Cadena = Line.substring(Inicio,Fin);
-                boolean esNumero = Cadena.matches("[+-]?\\d*(\\.\\d+)?");
+                boolean esNumero = Cadena.matches("[+-]?\\d*(d+)?");
                 Inicio = n+1;
                 Fin = 0;
                 
@@ -143,7 +141,7 @@ public class Manejador {
     }
     
     public static void Comprobar(){
-        System.out.println("Antes " + Lista.length);
+        
         Apuesta[] Lista1 = new Apuesta[Lista.length];
         int Posicion = 0;
         boolean tmp = false;
@@ -162,7 +160,7 @@ public class Manejador {
            if(Valido(n1)&&Valido(n2)&&Valido(n3)&&Valido(n4)&&Valido(n5)&&Valido(n6)&&Valido(n7)&&Valido(n8)&&Valido(n9)&&Valido(n10)){
                int fac = n1*n2*n3*n4*n5*n6*n7*n8*n9*n10;
                if(fac == 3628800) tmp =true;
-               System.out.println("Valido");
+               
            }
            
            if(tmp){
@@ -176,7 +174,7 @@ public class Manejador {
        
        Lista = Lista1;
        NLinea = Posicion;
-       System.out.println("Despues " + Lista.length);
+      
     }
     
     public static boolean Valido(int n ){
@@ -188,7 +186,7 @@ public class Manejador {
     
     
     public  void CalculoResultados(int[] Resultados){
-        System.out.println("Tamano" + Lista.length);
+        
         for(int i=0;i<NLinea;i++){
             if(Lista[i].getPos1() == Resultados[0]){
                 Lista[i].setPuntaje(Lista[i].getPuntaje() + 10);
